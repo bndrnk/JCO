@@ -15,6 +15,8 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.23" level="project" />
     <orderEntry type="library" name="Maven: JMapViewer:JMapViewer:1.0" level="project" />
     <orderEntry type="library" name="Maven: JMapViewer_src:JMapViewer_src:1.0" level="project" />
+    <orderEntry type="library" name="JMapViewer" level="project" />
+    <orderEntry type="library" name="JMapViewer_src" level="project" />
   </component>
 </module>
 

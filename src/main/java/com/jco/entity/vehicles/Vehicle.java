@@ -52,7 +52,6 @@ public abstract class Vehicle implements Serializable {
      */
     protected abstract void setVehicleRouteColor();
 
-    // TODO They should be public ? I Think that they must be protected cuz they are using for drawing route and marker
     public Color getVehicleColor() {
         return vehicleColor;
     }

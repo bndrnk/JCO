@@ -120,8 +120,6 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
     @Override
     public void processCommand(JMVCommandEvent command) {
         if (command.getCommand().equals(JMVCommandEvent.COMMAND.ZOOM)) {
-            // ToDo these methods returns actual lat lon zoom values; we can compere them with qatar coordinates
-//             and if current lat lon are more then qatar then not zoom
 
         }
     }
