@@ -1,9 +1,9 @@
 package com.jco;
 
-import com.jco.database.table.LocationTable;
+import com.jco.entity.vehicles.TruckMixer;
+import com.jco.entity.vehicles.Vehicle;
+import com.jco.entity.vehicles.WaterTruck;
 import com.jco.map.JcoMap;
-import org.openstreetmap.gui.jmapviewer.*;
-import org.openstreetmap.gui.jmapviewer.interfaces.MapRectangle;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -22,38 +22,21 @@ public class Jco {
     private static final float QATAR_LON = 51.25f;
 
     public static void main(String[] args) {
-        JcoMap map = JcoMap.loadMapByLatLon(QATAR_LAT, QATAR_LON, 10);
-        List<Coordinate> coordinates = LocationTable.getRouteByTrackName("Doha1.gpx");
-        drawTrackRoute(map, coordinates);
+        final JcoMap map = JcoMap.loadMapByLatLon(QATAR_LAT, QATAR_LON, 10);
+        List<Vehicle> vehicles = new ArrayList<Vehicle>(Arrays.asList(new TruckMixer("Doha1.gpx"),
+                new WaterTruck("doha_Ras_Laffan_port.gpx"), new WaterTruck(Color.MAGENTA, "17_JAN_12_09.42.24.gpx"),
+                new TruckMixer(Color.RED, "Nepal_Bhutan.gpx"),
+                new WaterTruck(Color.CYAN, "62.gpx"),
+                new TruckMixer(Color.GRAY,"75.gpx"),
+                new TruckMixer(Color.YELLOW, "69.gpx"),
+                new TruckMixer(Color.BLACK, "66.gpx")));
         map.setVisible(Boolean.TRUE);
-//        emulateMarkerMoving(map, coordinates);
-    }
 
-    private static void emulateMarkerMoving(JcoMap map, List<Coordinate> coordinates) {
-        try {
-            JMapViewer mapViewer = map.getjMapViewerInstance();
-            MapMarkerDot previousMapMarker = null;
-            for (Coordinate coordinate : coordinates) {
-                Thread.sleep(1000);
-                if (previousMapMarker != null) {
-                    mapViewer.removeMapMarker(previousMapMarker);
-                }
-                mapViewer.addMapMarker(previousMapMarker = new MapMarkerDot(coordinate.getLat(), coordinate.getLon()));
-            }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (Vehicle vehicle: vehicles) {
+            vehicle.drawRoute(map.getjMapViewerInstance(), new BasicStroke(2));
+            vehicle.showAnimation(map.getjMapViewerInstance());
         }
-    }
 
-    private static void drawTrackRoute(JcoMap map, List<Coordinate> coordinates) {
-        try {
-            JMapViewer mapViewer = map.getjMapViewerInstance();
-            mapViewer.addMapPolygon(new LinePolygon(coordinates, Color.RED, new BasicStroke(2)));
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
     }
 
 }

@@ -5,7 +5,6 @@ import com.jco.database.queries.QueriesUtility;
 import com.jco.entity.database.Location;
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,7 +55,10 @@ public class LocationTable {
      * @param name Track name
      * @return {@link List} with {@link Coordinate} or Empty;
      */
-    public static List<Coordinate> getRouteByTrackName(String name) {
+    public static List<Coordinate> getRouteByName(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Route name is null");
+        }
         List<Coordinate> resultList = new ArrayList<Coordinate>();
         PreparedStatement statement = null;
         try {
@@ -85,7 +87,7 @@ public class LocationTable {
         if (statement != null) {
             statement.close();
         }
-        DatabaseManager.close();
+//        DatabaseManager.close();
     }
 
 }

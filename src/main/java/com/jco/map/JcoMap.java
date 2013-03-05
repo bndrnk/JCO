@@ -8,9 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
 
 /**
  * Java Cost Optimizer map frame implementation
@@ -110,11 +107,8 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
      * @return {@link JMapViewer} instance
      * @throws InstantiationException
      */
-    public JMapViewer getjMapViewerInstance() throws InstantiationException {
-        if (jMapViewer == null) {
-            throw new InstantiationException("JMapViewer instantiation exception");
-        }
-        return jMapViewer;
+    public JMapViewer getjMapViewerInstance() {
+        return this.jMapViewer;
     }
 
     @Override
