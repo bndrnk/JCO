@@ -21,6 +21,7 @@ import java.util.List;
  */
 public abstract class Vehicle implements Serializable {
 
+//    private static final byte ROUTE_TRANSPARENT = 50;
     /**
      * Current vehicle implementation must contain it own color
      */
@@ -51,22 +52,21 @@ public abstract class Vehicle implements Serializable {
      * Moving on current route emulation for current {@link Vehicle}
      * @param viewer {@link JMapViewer} instance
      */
+    synchronized
     public void showAnimation(final JMapViewer viewer) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    synchronized (this) {
-                        ThreadLocal<MapMarkerDot> threadLocal = new ThreadLocal<MapMarkerDot>();
-                        for (Coordinate coordinate : Collections.synchronizedList(getVehicleRoute())) {
-                            if (threadLocal.get() != null && viewer.getMapMarkerList().contains(threadLocal.get())) {
-                                viewer.removeMapMarker(threadLocal.get());
-                                threadLocal.remove();
-                            }
-                            threadLocal.set(new MapMarkerDot(getVehicleColor(), coordinate.getLat(), coordinate.getLon()));
-                            viewer.addMapMarker(threadLocal.get());
-                            Thread.sleep(EntitiesUtility.DELAY);
+                    ThreadLocal<MapMarkerDot> threadLocal = new ThreadLocal<MapMarkerDot>();
+                    for (Coordinate coordinate : Collections.synchronizedList(getVehicleRoute())) {
+                        if (threadLocal.get() != null && viewer.getMapMarkerList().contains(threadLocal.get())) {
+                            viewer.removeMapMarker(threadLocal.get());
+                            threadLocal.remove();
                         }
+                        threadLocal.set(new MapMarkerDot(getVehicleColor(), coordinate.getLat(), coordinate.getLon()));
+                        viewer.addMapMarker(threadLocal.get());
+                        Thread.sleep(EntitiesUtility.DELAY);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -99,6 +99,9 @@ public abstract class Vehicle implements Serializable {
 
     public void setVehicleRouteColor(Color vehicleRouteColor) {
         this.vehicleRouteColor = vehicleRouteColor;
+//                new Color(vehicleRouteColor.getRed(),
+//                                            vehicleRouteColor.getGreen(),
+//                                            vehicleRouteColor.getBlue(), ROUTE_TRANSPARENT);
     }
 
     public String getVehicleName() {

@@ -73,7 +73,6 @@ public class GpxParser extends AbstractParser {
                 }
                 location.setLatitude(Double.parseDouble(attrs.getNamedItem(LAT_TAG).getTextContent()));
                 location.setLongitude(Double.parseDouble(attrs.getNamedItem(LON_TAG).getTextContent()));
-                location.setDate(parseDate(getValueByTagName(item.getChildNodes(),TIME_TAG)));
 
                 points.add(location);
             }
@@ -86,7 +85,6 @@ public class GpxParser extends AbstractParser {
         return points;
     }
 
-
     private String getValueByTagName(NodeList nodeList, String tagName) {
         if (nodeList != null) {
             for (int index = 0; index < nodeList.getLength(); index++) {
@@ -96,21 +94,6 @@ public class GpxParser extends AbstractParser {
             }                
         }
         return EMPTY_NODE_NAME;
-    }
-
-    private long parseDate(String nodeValue) {
-        if (!nodeValue.isEmpty()) {
-            try {
-                return (getDateFormatter().parse(nodeValue)).getTime();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-        return 0l;
-    }
-
-    private static SimpleDateFormat getDateFormatter() {
-        return (SimpleDateFormat)gpxDate.clone();
     }
 
 }

@@ -4,8 +4,6 @@
       <root url="jar://$PROJECT_DIR$/lib/JMapViewer.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/lib/JMapViewer_src.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
