@@ -29,9 +29,9 @@ public final class AnimationRunner {
      * @param viewer {@link JMapViewer} instance
      */
     public static void runAnimation(JMapViewer viewer) {
-        List<Vehicle> vehicles = new ArrayList<Vehicle>(Arrays.asList(new TruckMixer("Doha1.gpx"),
-                new WaterTruck("doha_Ras_Laffan_port.gpx"), new WaterTruck(Color.MAGENTA, "17_JAN_12_09.42.24.gpx"),
-                new TruckMixer(Color.RED, "Nepal_Bhutan.gpx")));
+        List<Vehicle> vehicles = new ArrayList<Vehicle>(Arrays.asList(new TruckMixer(),
+                new WaterTruck(), new WaterTruck(Color.MAGENTA),
+                new TruckMixer(Color.RED)));
         for (Vehicle vehicle: vehicles) {
             vehicle.drawRoute(viewer, new BasicStroke(2));
             vehicle.showAnimation(viewer);

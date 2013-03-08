@@ -19,4 +19,7 @@ public final class EntitiesUtility {
     public static final Color WATER_TRUCK_ROUTE_COLOR = Color.BLUE;
     public static final long DELAY = 500;
 
+    public static final String TRUCK_MIXER_TYPE = "Truck mixer";
+    public static final String WATER_TRUCK_TYPE = "Water Truck";
+
 }

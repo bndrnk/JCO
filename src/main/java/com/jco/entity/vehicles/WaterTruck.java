@@ -13,15 +13,15 @@ import java.awt.*;
  */
 public class WaterTruck extends Vehicle {
 
-    public WaterTruck(String routeName) {
+    public WaterTruck() {
         super();
-        setRouteName(routeName);
+        setVehicleType(EntitiesUtility.WATER_TRUCK_TYPE);
         setVehicleColor(EntitiesUtility.WATER_TRUCK_COLOR);
         setVehicleRouteColor(EntitiesUtility.WATER_TRUCK_ROUTE_COLOR);
     }
 
-    public WaterTruck(Color color, String routeName) {
-        this(routeName);
+    public WaterTruck(Color color) {
+        this();
         setVehicleColor(color);
         setVehicleRouteColor(color);
     }

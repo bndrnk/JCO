@@ -8,7 +8,7 @@ import java.awt.*;
  * @author Bondoronok_P
  *         Date: 07.03.13
  */
-public final class MapUtilities {
+ final class MapUtilities {
 
     /**
      * Frame width and height
@@ -24,13 +24,22 @@ public final class MapUtilities {
      static final String TILE_SOURCES_LABEL = "Tile source:";
      static final String LOAD_GPX_LABEL = "Load GPS data";
      static final String SELECTED_VEHICLE_INFO = "Information about selected vehicle:";
+     static final String LOAD_NEW_BASE_POINT = "Load new Base coordinate";
      static final String RUN_BUTTON = "Run";
+     static final String STRING_FORMAT_PATTERN = "%s";
+     static final String ROUTE_NAME = "Enter route name";
 
     /**
      * Components dimensions
      */
-     static final Dimension VEHICLE_INFO_LABEL_DIMENSION = new Dimension(350, 800);
-     static final Dimension SEPARATOR_DIMENSION = new Dimension(350, 1);
+     static final Dimension VEHICLE_INFO_LABEL_DIMENSION = new Dimension(250, 800);
+     static final Dimension SEPARATOR_DIMENSION = new Dimension(250, 1);
      static final Dimension TILE_SOURCE_DIMENSION = new Dimension(40, 1);
-    
+     static final Dimension ROUTE_SOURCE_DIMENSION = new Dimension(200, 25);
+
+
+    public static final String HELP_INFO = "<html><br>Before saving data, you should select location on map.<br>In case if base coordinate doesn't defined, you should define it first of all.</html>";
+    public static final String SAVE_BUTTON = "Save";
+    public static final String CANCEL_BUTTON = "Cancel";
+    public static final String EMPTY = "";
 }

@@ -1,6 +1,9 @@
 package com.jco.map;
 
 import com.jco.animation.AnimationRunner;
+import com.jco.entity.vehicles.TruckMixer;
+import com.jco.entity.vehicles.Vehicle;
+import com.jco.entity.vehicles.WaterTruck;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.events.JMVCommandEvent;
 import org.openstreetmap.gui.jmapviewer.interfaces.JMapViewerEventListener;
@@ -34,7 +37,7 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
 
     private void buildUi() {
         setSize(MapUtilities.WIDTH, MapUtilities.HEIGHT);
-        
+
         jMapViewer = new JMapViewer();
         // by default we use Mapnik tile source
         jMapViewer.setTileSource(new OsmTileSource.Mapnik());
@@ -43,24 +46,37 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         // main frame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-        // Components initialization
+
+        // Components initialization;
         final JButton runButton = new JButton(MapUtilities.RUN_BUTTON);
-        JComboBox tileSourceSelector = new JComboBox(new TileSource[] { new OsmTileSource.Mapnik(),
+        final JButton saveButton = new JButton(MapUtilities.SAVE_BUTTON);
+        saveButton.setEnabled(Boolean.FALSE);
+        final JButton cancelButton = new JButton(MapUtilities.CANCEL_BUTTON);
+        cancelButton.setEnabled(Boolean.FALSE);
+        final JTextField routeName = new JTextField(MapUtilities.ROUTE_NAME);
+        routeName.setEnabled(Boolean.FALSE);
+        final JLabel tileSourcesLabel = new JLabel(MapUtilities.TILE_SOURCES_LABEL);
+        final JLabel vehicleInfo = new JLabel(MapUtilities.SELECTED_VEHICLE_INFO);
+        final JLabel helpInfo = new JLabel(MapUtilities.HELP_INFO);
+        final JLabel vehicleInfoLabel = new JLabel();
+        final JSeparator separator = new JSeparator();
+        separator.setOrientation(JSeparator.HORIZONTAL);
+
+        final JCheckBox loadGpxCheckBox = new JCheckBox(MapUtilities.LOAD_GPX_LABEL);
+        final JCheckBox loadNewBaseCoordinate = new JCheckBox(MapUtilities.LOAD_NEW_BASE_POINT);
+        final JComboBox tileSourceSelector = new JComboBox(new TileSource[] { new OsmTileSource.Mapnik(),
                 new OsmTileSource.CycleMap(), new BingAerialTileSource(),
                 new MapQuestOsmTileSource(), new MapQuestOpenAerialTileSource() });
-        JLabel tileSourcesLabel = new JLabel(MapUtilities.TILE_SOURCES_LABEL);
-        JLabel vehicleInfo = new JLabel(MapUtilities.SELECTED_VEHICLE_INFO);
-        final JCheckBox loadGpxCheckBox = new JCheckBox(MapUtilities.LOAD_GPX_LABEL);
-        JLabel vehicleInfoLabel = new JLabel();
-        JSeparator separator = new JSeparator();
-        separator.setOrientation(JSeparator.HORIZONTAL);
+        final JComboBox vehiclesTypesCombo = new JComboBox(new Vehicle[] { new TruckMixer(), new WaterTruck()});
+        vehiclesTypesCombo.setEnabled(Boolean.FALSE);
 
         // Set maximum sizes
         tileSourceSelector.setMaximumSize(MapUtilities.TILE_SOURCE_DIMENSION);
         separator.setMaximumSize(MapUtilities.SEPARATOR_DIMENSION);
         vehicleInfoLabel.setMaximumSize(MapUtilities.VEHICLE_INFO_LABEL_DIMENSION);
         runButton.setMaximumSize(MapUtilities.SEPARATOR_DIMENSION);
+        vehiclesTypesCombo.setMaximumSize(MapUtilities.TILE_SOURCE_DIMENSION);
+        routeName.setMaximumSize(MapUtilities.ROUTE_SOURCE_DIMENSION);
 
         // built layout
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -69,30 +85,62 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         layout.setAutoCreateContainerGaps(true);
 
         layout.setHorizontalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addComponent(jMapViewer))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addComponent(tileSourcesLabel)
                                 .addComponent(tileSourceSelector))
-                        .addComponent(loadGpxCheckBox)
-                        .addComponent(separator)
-                        .addComponent(vehicleInfo)
-                        .addComponent(vehicleInfoLabel)
-                        .addComponent(runButton))
-
-        );
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup()
                         .addComponent(jMapViewer)
                         .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(loadGpxCheckBox)
+                                        .addComponent(loadNewBaseCoordinate))
+                                .addComponent(helpInfo)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                  .addComponent(routeName)
+                                                  .addComponent(vehiclesTypesCombo)
+                                        )
+                                        .addGroup(layout.createSequentialGroup()
+                                                  .addComponent(saveButton)
+                                                  .addComponent(cancelButton)
+                                        )
+                                )
+                        )
+                )
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(vehicleInfo)
+                        .addComponent(vehicleInfoLabel)
+                        .addComponent(separator)
+                        .addComponent(runButton))
+
+                        );
+        layout.setVerticalGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup()
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                         .addComponent(tileSourcesLabel)
                                         .addComponent(tileSourceSelector))
-                                .addComponent(loadGpxCheckBox)
-                                .addComponent(separator)
+                                .addComponent(jMapViewer)
+                                .addGroup(layout.createParallelGroup()
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(loadGpxCheckBox)
+                                                .addComponent(loadNewBaseCoordinate))
+                                        .addComponent(helpInfo)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup()
+                                                        .addComponent(routeName)
+                                                        .addComponent(vehiclesTypesCombo)
+                                                )
+                                                .addGroup(layout.createParallelGroup()
+                                                        .addComponent(saveButton)
+                                                        .addComponent(cancelButton)
+                                                )
+                                        )
+                                ))
+                        .addGroup(layout.createSequentialGroup()
                                 .addComponent(vehicleInfo)
                                 .addComponent(vehicleInfoLabel)
+                                .addComponent(separator)
                                 .addComponent(runButton)
                         )));
 
@@ -100,13 +148,53 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         loadGpxCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                runButton.setEnabled(!loadGpxCheckBox.isSelected());
+                runButton.setEnabled(!loadGpxCheckBox.isSelected() && !loadNewBaseCoordinate.isSelected());
+                // Todo should use more complex condition (checking base coordinate, etc.)
+                saveButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
+                cancelButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
+                routeName.setEnabled(loadGpxCheckBox.isSelected());
+                vehiclesTypesCombo.setEnabled(loadGpxCheckBox.isSelected());
+            }
+        });
+        loadNewBaseCoordinate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                runButton.setEnabled(!loadNewBaseCoordinate.isSelected() && !loadGpxCheckBox.isSelected());
+                // Todo should use more complex condition (checking base coordinate, etc.)
+                saveButton.setEnabled(loadNewBaseCoordinate.isSelected() || loadGpxCheckBox.isSelected());
+                cancelButton.setEnabled(loadNewBaseCoordinate.isSelected() || loadGpxCheckBox.isSelected());
             }
         });
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 AnimationRunner.runAnimation(jMapViewer);
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
+        routeName.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                saveButton.setEnabled(!MapUtilities.EMPTY.equals(routeName.getText()));
+            }
+        });
+        routeName.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (MapUtilities.ROUTE_NAME.equalsIgnoreCase(routeName.getText())) {
+                    routeName.setText(MapUtilities.EMPTY);
+                }
             }
         });
         tileSourceSelector.addItemListener(new ItemListener() {
@@ -127,6 +215,7 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
             }
         });
     }
+
     /**
      * Instantiate {@link JcoMap} instance
      *
@@ -165,5 +254,6 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
 
     @Override
     public void processCommand(JMVCommandEvent command) {
+
     }
 }

@@ -13,15 +13,15 @@ import java.awt.*;
  */
 public class TruckMixer extends Vehicle {
 
-    public TruckMixer(String routeName) {
+    public TruckMixer() {
         super();
-        setRouteName(routeName);
+        setVehicleType(EntitiesUtility.TRUCK_MIXER_TYPE);
         setVehicleColor(EntitiesUtility.TRUCK_MIXER_COLOR);
         setVehicleRouteColor(EntitiesUtility.TRUCK_MIXER_ROUTE_COLOR);
     }
 
-    public TruckMixer(Color color, String routeName) {
-        this(routeName);
+    public TruckMixer(Color color) {
+        this();
         setVehicleColor(color);
         setVehicleRouteColor(color);
     }

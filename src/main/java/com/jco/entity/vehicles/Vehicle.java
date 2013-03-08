@@ -123,4 +123,9 @@ public abstract class Vehicle implements Serializable {
     public void setRouteName(String routeName) {
         this.routeName = routeName;
     }
+
+    @Override
+    public String toString() {
+        return getVehicleType();
+    }
 }
