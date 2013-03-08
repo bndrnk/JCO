@@ -1,10 +1,16 @@
 package com.jco.map;
 
 import com.jco.animation.AnimationRunner;
+import com.jco.database.table.LocationTable;
+import com.jco.entity.database.Location;
 import com.jco.entity.vehicles.TruckMixer;
 import com.jco.entity.vehicles.Vehicle;
 import com.jco.entity.vehicles.WaterTruck;
+import com.jco.loaders.Loader;
+import com.jco.loaders.yours.YoursLoader;
+import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
+import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.events.JMVCommandEvent;
 import org.openstreetmap.gui.jmapviewer.interfaces.JMapViewerEventListener;
 import org.openstreetmap.gui.jmapviewer.interfaces.TileSource;
@@ -14,6 +20,7 @@ import org.openstreetmap.gui.jmapviewer.tilesources.MapQuestOsmTileSource;
 import org.openstreetmap.gui.jmapviewer.tilesources.OsmTileSource;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 /**
@@ -26,6 +33,8 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
 
     private static JMapViewer jMapViewer = null;
     private static JcoMap jcoMap = null;
+    private static boolean baseLocationIsExist = Boolean.FALSE;
+    private Loader loader;
 
     /**
      * Instantiate map by latitude an longitude
@@ -42,6 +51,12 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         // by default we use Mapnik tile source
         jMapViewer.setTileSource(new OsmTileSource.Mapnik());
         jMapViewer.addJMVListener(this);
+        final Location baseLocation = LocationTable.selectBaseCoordinate();
+        baseLocationIsExist =  baseLocation != null;
+        // TODO use images for static markers
+        if (baseLocationIsExist)
+            jMapViewer.addMapMarker(new MapMarkerDot(Color.CYAN, baseLocation.getLatitude(), baseLocation.getLongitude()));
+
 
         // main frame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -148,19 +163,24 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         loadGpxCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                runButton.setEnabled(!loadGpxCheckBox.isSelected() && !loadNewBaseCoordinate.isSelected());
-                // Todo should use more complex condition (checking base coordinate, etc.)
-                saveButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
-                cancelButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
-                routeName.setEnabled(loadGpxCheckBox.isSelected());
-                vehiclesTypesCombo.setEnabled(loadGpxCheckBox.isSelected());
+                // TODO use methods instead check conditions
+                if (baseLocationIsExist) {
+                    runButton.setEnabled(!loadGpxCheckBox.isSelected() &&
+                                         !loadNewBaseCoordinate.isSelected() &&
+                                         !baseLocationIsExist);
+
+                    saveButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
+                    cancelButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
+                    routeName.setEnabled(loadGpxCheckBox.isSelected());
+                    vehiclesTypesCombo.setEnabled(loadGpxCheckBox.isSelected());
+                }
             }
         });
         loadNewBaseCoordinate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 runButton.setEnabled(!loadNewBaseCoordinate.isSelected() && !loadGpxCheckBox.isSelected());
-                // Todo should use more complex condition (checking base coordinate, etc.)
+
                 saveButton.setEnabled(loadNewBaseCoordinate.isSelected() || loadGpxCheckBox.isSelected());
                 cancelButton.setEnabled(loadNewBaseCoordinate.isSelected() || loadGpxCheckBox.isSelected());
             }
@@ -174,7 +194,8 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                // TODO Check data saving
+                loader.saveToDatabase(routeName.getText(), String.valueOf(vehiclesTypesCombo.getSelectedItem()));
             }
         });
         cancelButton.addActionListener(new ActionListener() {
@@ -207,10 +228,12 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON1) {
-                    jMapViewer.getAttribution().handleAttribution(e.getPoint(), true);
-//                     TODO we can implement route loader by using http://www.yournavigation.org/api/1.0/saveas.php api
-//                    Coordinate coordinate = jMapViewer.getPosition(e.getPoint());
-//                    jMapViewer.addMapMarker(new MapMarkerDot(coordinate.getLat(), coordinate.getLon()));
+                    if (loadGpxCheckBox.isSelected()) {
+                        Coordinate coordinate = jMapViewer.getPosition(e.getPoint());
+                        jMapViewer.addMapMarker(new MapMarkerDot(coordinate.getLat(), coordinate.getLon()));
+                        loader =  new YoursLoader(jMapViewer, coordinate);
+                        new Thread(loader).start();
+                    }
                 }
             }
         });

@@ -1,7 +1,6 @@
 package com.jco.entity.database;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Class discription
@@ -11,18 +10,33 @@ import java.util.Date;
  */
 public class Location implements Serializable {
 
-    private String trkName;
+    private String routeName;
+    private String vehicleType;
     private double latitude;
     private double longitude;
-    private long date;
+    private long time;
 
+    public Location(){};
 
-    public String getTrkName() {
-        return trkName;
+    public Location(double lat, double lon) {
+        this.latitude = lat;
+        this.longitude = lon;
     }
 
-    public void setTrkName(String trkName) {
-        this.trkName = trkName;
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public String getRouteName() {
+        return routeName;
+    }
+
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
     }
 
     public double getLatitude() {
@@ -41,19 +55,19 @@ public class Location implements Serializable {
         this.longitude = longitude;
     }
 
-    public long getDate() {
-        return date;
+    public long getTime() {
+        return time;
     }
 
-    public void setDate(long date) {
-        this.date = date;
+    public void setTime(long time) {
+        this.time = time;
     }
 
     @Override
     public String toString() {
-        return "Location{ TREK_NAME=" + trkName +
+        return "Location{ TREK_NAME=" + routeName +
                 "longitude=" + longitude +
                 ", latitude=" + latitude +
-                ", time=" + date +'}';
+                ", time=" + time +'}';
     }
 }

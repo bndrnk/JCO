@@ -8,6 +8,7 @@ import org.openstreetmap.gui.jmapviewer.Coordinate;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  *
  * @author Bondoronok_P
  *         Date: 28.02.13
- */
+ */                        // TODO handle try/catch blocks
 public class LocationTable {
 
     private static final String LOCATION_NAME_FIELD = "LOCATION_NAME";
@@ -33,10 +34,10 @@ public class LocationTable {
         try {
             statement = DatabaseManager.getConnection().prepareStatement(QueriesUtility.INSERT_NEW_LOCATION);
             int index = 1;
-            statement.setString(index++, location.getTrkName());
+            statement.setString(index++, location.getRouteName());
             statement.setDouble(index++, location.getLatitude());
             statement.setDouble(index++, location.getLongitude());
-            statement.setLong(index++, location.getDate());
+            statement.setLong(index++, location.getTime());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,6 +48,34 @@ public class LocationTable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static Location selectBaseCoordinate() {
+        Location baseLocation = null;
+        Statement statement = null;
+        try {
+            statement = DatabaseManager.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(QueriesUtility.BASE_LOCATION_QUERY);
+            if (resultSet.next()) {
+                baseLocation = new Location();
+                baseLocation.setLatitude(resultSet.getDouble(LATITUDE_FIELD));
+                baseLocation.setLongitude(resultSet.getDouble(LONGITUDE_FIELD));
+                baseLocation.setTime(resultSet.getLong(TIME_FIELD));
+            } else {
+                throw new SQLException("Cannot find base location in database!");
+            }
+        } catch (SQLException e) {
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return baseLocation;
     }
 
     /**
@@ -70,6 +99,7 @@ public class LocationTable {
                 double longitude = resultSet.getDouble(LONGITUDE_FIELD);
                 resultList.add(new Coordinate(latitude, longitude));
             }
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -87,7 +117,5 @@ public class LocationTable {
         if (statement != null) {
             statement.close();
         }
-//        DatabaseManager.close();
     }
-
 }

@@ -42,4 +42,6 @@ import java.awt.*;
     public static final String SAVE_BUTTON = "Save";
     public static final String CANCEL_BUTTON = "Cancel";
     public static final String EMPTY = "";
+
+    private MapUtilities() {};
 }

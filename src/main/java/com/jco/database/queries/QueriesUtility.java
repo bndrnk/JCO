@@ -14,5 +14,7 @@ public final class QueriesUtility {
               .append(" AND (LATITUDE IS NOT NULL ")
               .append("OR LONGITUDE IS NOT NULL) ").toString();
 
+    public static final String BASE_LOCATION_QUERY = "SELECT * FROM LOCATION WHERE LOCATION_NAME = 'BASE'";
+
 
 }

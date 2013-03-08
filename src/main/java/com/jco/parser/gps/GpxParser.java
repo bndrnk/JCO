@@ -1,21 +1,22 @@
 package com.jco.parser.gps;
 
-import com.jco.database.table.LocationTable;
 import com.jco.entity.database.Location;
 import com.jco.parser.AbstractParser;
-import org.w3c.dom.*;
+import com.jco.parser.ParserUtilities;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * .GPX parser implementation
@@ -25,58 +26,41 @@ import java.util.List;
  */
 public class GpxParser extends AbstractParser {
 
-    private static final SimpleDateFormat gpxDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-
-    // TAGS
-    private static final String EMPTY_NODE_NAME = "";
-    private static final String NAME_TAG = "name";
-    private static final String TIME_TAG = "time";
-    private static final String TREK_POINT_TAG = "trkpt";
-    private static final String LAT_TAG = "lat";
-    private static final String LON_TAG = "lon";
-
-
     @Override
-    public void parse(File file) {
-        if (file == null) {
-            throw new IllegalArgumentException("File path for parsing is null");
+    public void parse(InputStream stream) {
+        if (stream == null) {
+            throw new IllegalArgumentException("InputStream is null");
         }
-        for (Location location : findPoints(file)) {
-            LocationTable.insert(location);
-        }
+        setFoundedData(findLocations(stream));
     }
 
-    private List<Location> findPoints(File file) {
-        List<Location> points = null;
+    /**
+     * Found locations in current <code>inputStream</code>
+     * @param inputStream instantiated inputStream
+     * @return {@link List} of {@link Location}
+     */
+    private List<Location> findLocations(InputStream inputStream) {
+        List<Location> points = new ArrayList<Location>();;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
 
-            FileInputStream fis = new FileInputStream(file);
-            Document dom = builder.parse(fis);
+            Document dom = builder.parse(inputStream);
             Element root = dom.getDocumentElement();
-            NodeList items = root.getElementsByTagName(TREK_POINT_TAG);
 
-            points = new ArrayList<Location>();
+            NodeList items = root.getElementsByTagName(ParserUtilities.COORDINATES);
 
-            for(int j = 0; j < items.getLength(); j++) {
-                Node item = items.item(j);
-                NamedNodeMap attrs = item.getAttributes();
-
-                Location location = new Location();
-
-                Node parentNode;
-                if ((parentNode = item.getParentNode()) != null) {
-                    if ((parentNode = parentNode.getParentNode()) != null) {
-                        location.setTrkName(getValueByTagName(parentNode.getChildNodes(), NAME_TAG));
-                    }
-                }
-                location.setLatitude(Double.parseDouble(attrs.getNamedItem(LAT_TAG).getTextContent()));
-                location.setLongitude(Double.parseDouble(attrs.getNamedItem(LON_TAG).getTextContent()));
-
+            String travelTime = root.getElementsByTagName(ParserUtilities.TIME_TAG)
+                                    .item(ParserUtilities.FIRST_ITEM).getFirstChild().getNodeValue();
+            long timeLong = (travelTime == null ||
+                             travelTime.isEmpty()) ?
+                    ParserUtilities.DEFAULT_TIME_TRAVEL : Long.valueOf(travelTime);
+            Node coordinates = items.item(ParserUtilities.FIRST_ITEM);
+            for (Location location : parseCoordinatesString(coordinates.getFirstChild().getNodeValue())) {
+                location.setTime(timeLong);
                 points.add(location);
             }
-            fis.close();
+            inputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch(ParserConfigurationException ex) {
@@ -85,15 +69,27 @@ public class GpxParser extends AbstractParser {
         return points;
     }
 
-    private String getValueByTagName(NodeList nodeList, String tagName) {
-        if (nodeList != null) {
-            for (int index = 0; index < nodeList.getLength(); index++) {
-                Node currentChild = nodeList.item(index);
-                if (!tagName.equals(currentChild.getNodeName())) continue;
-                return currentChild.getFirstChild().getNodeValue();
-            }                
+    /**
+     * Parse string (20.124123, 51.102129 12.12314,51.123414) into Locations list
+     * @param coordinatesString
+     * @return {@link List} of {@link Location}
+     */
+    private Iterable<? extends Location> parseCoordinatesString(String coordinatesString) {
+        if (coordinatesString == null || coordinatesString.isEmpty()) {
+            throw new IllegalArgumentException("Cannot find any coordinate");
         }
-        return EMPTY_NODE_NAME;
+        Pattern pattern = Pattern.compile(ParserUtilities.SPLIT_PATTERN);
+        List<Location> result = new ArrayList<Location>();
+        String[] valueReference;
+        for(String currentValue : pattern.split(coordinatesString)) {
+            if (currentValue.isEmpty()) continue;
+            valueReference = currentValue.split(ParserUtilities.COMMA);
+            if (valueReference.length != ParserUtilities.COORDINATE_VALUES_COUNT) continue;
+            double lat = Double.valueOf(valueReference[ParserUtilities.LATITUDE_INDEX]);
+            double lon = Double.valueOf(valueReference[ParserUtilities.LONGITUDE_INDEX]);
+            result.add(new Location(lat, lon));
+        }
+        return result;
     }
 
 }

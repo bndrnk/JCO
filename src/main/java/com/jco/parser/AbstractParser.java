@@ -1,6 +1,8 @@
 package com.jco.parser;
 
-import java.io.File;
+import com.jco.entity.database.Location;
+
+import java.io.InputStream;
 
 /**
  * Class discription
@@ -10,10 +12,20 @@ import java.io.File;
  */
 public abstract class AbstractParser {
 
+    protected Iterable< ? extends Location> foundedData;
+
     /**
      *
-     * @param file
+     * @param stream
      */
-    public abstract void parse(File file);
+    public abstract void parse(InputStream stream);
+
+    public Iterable<? extends Location> getFoundedData() {
+        return foundedData;
+    }
+
+    protected void setFoundedData(Iterable<? extends Location> foundedData) {
+        this.foundedData = foundedData;
+    }
 
 }
