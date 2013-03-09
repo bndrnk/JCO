@@ -10,11 +10,11 @@ import java.io.Serializable;
  */
 public class Location implements Serializable {
 
-    private String routeName;
-    private String vehicleType;
+    private long locationId;
+    private String locationName;
     private double latitude;
     private double longitude;
-    private long time;
+    private long routeId;
 
     public Location(){};
 
@@ -23,20 +23,28 @@ public class Location implements Serializable {
         this.longitude = lon;
     }
 
-    public String getVehicleType() {
-        return vehicleType;
+    public long getRouteId() {
+        return routeId;
     }
 
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
+    public void setRouteId(long routeId) {
+        this.routeId = routeId;
     }
 
-    public String getRouteName() {
-        return routeName;
+    public long getLocationId() {
+        return locationId;
     }
 
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
+    public void setLocationId(long locationId) {
+        this.locationId = locationId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 
     public double getLatitude() {
@@ -53,21 +61,5 @@ public class Location implements Serializable {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public long getTime() {
-        return time;
-    }
-
-    public void setTime(long time) {
-        this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "Location{ TREK_NAME=" + routeName +
-                "longitude=" + longitude +
-                ", latitude=" + latitude +
-                ", time=" + time +'}';
     }
 }

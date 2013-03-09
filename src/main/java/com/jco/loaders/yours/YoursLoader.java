@@ -9,9 +9,7 @@ import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 
 import java.awt.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -51,20 +49,20 @@ import java.net.URL;
  */
 public class YoursLoader extends Loader {
 
-    public YoursLoader(JMapViewer mapViewer, Color routeColor, Coordinate coordinate) {
+    public YoursLoader(JMapViewer mapViewer, Color routeColor, Coordinate baseCoordinate, Coordinate selectedCoordinate) {
         this.viewer = mapViewer;
         this.routeColor = routeColor;
-        this.selectedCoordinate = coordinate;
+        this.baseCoordinate = baseCoordinate;
+        this.selectedCoordinate = selectedCoordinate;
     }
 
     @Override
     public void loadData(Coordinate coordinate) {
-        // todo select base location in another place
-        Location baseLocation = LocationTable.selectBaseCoordinate();
         try {
             AbstractParser parser = new GpxParser();
-            parser.parse(new URL(prepareRequestUrl(baseLocation, coordinate)).openStream());
+            parser.parse(new URL(prepareRequestUrl(coordinate)).openStream());
             setLoadedData(parser.getFoundedData());
+            setParsedTime(parser.getParsedTime());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -72,13 +70,13 @@ public class YoursLoader extends Loader {
         }
     }
 
-    private String prepareRequestUrl(Location startCoordinate, Coordinate finishCoordinate) {
+    private String prepareRequestUrl(Coordinate finishCoordinate) {
         StringBuilder builder = new StringBuilder();
-        if (startCoordinate != null && finishCoordinate != null) {
+        if (baseCoordinate != null && finishCoordinate != null) {
             builder.append("http://www.yournavigation.org/api/1.0/gosmore.php?format=kml&flat=")
-            .append(startCoordinate.getLatitude())
+            .append(baseCoordinate.getLat())
             .append("&flon=")
-            .append(startCoordinate.getLongitude())
+            .append(baseCoordinate.getLon())
             .append("&tlat=")
             .append(finishCoordinate.getLat())
             .append("&tlon=")

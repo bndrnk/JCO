@@ -20,25 +20,27 @@ import java.util.List;
  */                        // TODO handle try/catch blocks
 public class LocationTable {
 
-    private static final String LOCATION_NAME_FIELD = "LOCATION_NAME";
     private static final String LATITUDE_FIELD = "LATITUDE";
     private static final String LONGITUDE_FIELD = "LONGITUDE";
-    private static final String TIME_FIELD = "TIME";
+    private static final String ROUTE_ID_FIELD = "LONGITUDE";
+    public static final String BASE = "BASE";
 
     /**
      * Insert new location instance into database table LOCATION
      * @param location {@link Location}
+     *
+     * @return count of updated rows
      */
-    public static void insert(Location location) {
+    public static int insert(Location location) {
         PreparedStatement statement = null;
         try {
             statement = DatabaseManager.getConnection().prepareStatement(QueriesUtility.INSERT_NEW_LOCATION);
             int index = 1;
-            statement.setString(index++, location.getRouteName());
+            statement.setString(index++, location.getLocationName());
             statement.setDouble(index++, location.getLatitude());
             statement.setDouble(index++, location.getLongitude());
-            statement.setLong(index++, location.getTime());
-
+            statement.setLong(index++, location.getRouteId());
+            return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -48,9 +50,10 @@ public class LocationTable {
                 e.printStackTrace();
             }
         }
+        return 0;
     }
 
-    public static Location selectBaseCoordinate() {
+    public static Location selectBaseLocation() {
         Location baseLocation = null;
         Statement statement = null;
         try {
@@ -58,9 +61,9 @@ public class LocationTable {
             ResultSet resultSet = statement.executeQuery(QueriesUtility.BASE_LOCATION_QUERY);
             if (resultSet.next()) {
                 baseLocation = new Location();
+                baseLocation.setLocationName(BASE);
                 baseLocation.setLatitude(resultSet.getDouble(LATITUDE_FIELD));
                 baseLocation.setLongitude(resultSet.getDouble(LONGITUDE_FIELD));
-                baseLocation.setTime(resultSet.getLong(TIME_FIELD));
             } else {
                 throw new SQLException("Cannot find base location in database!");
             }

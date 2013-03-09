@@ -1,7 +1,11 @@
 package com.jco.loaders;
 
 import com.jco.database.table.LocationTable;
+import com.jco.database.table.RouteTable;
+import com.jco.database.table.VehicleTable;
 import com.jco.entity.database.Location;
+import com.jco.entity.database.Route;
+import com.jco.entity.database.Vehicle;
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.LinePolygon;
@@ -21,6 +25,8 @@ public abstract class Loader implements Runnable {
 
     private Iterable<? extends Location> loadedData;
     protected Coordinate selectedCoordinate;
+    protected Coordinate baseCoordinate;
+    protected long parsedTime;
     protected JMapViewer viewer;
     protected Color routeColor;
 
@@ -42,10 +48,11 @@ public abstract class Loader implements Runnable {
      * @param name name of saving route
      */
     public void saveToDatabase(String name, String vehicleType) {
+        long routeId = RouteTable.selectMaxRouteId();
+        RouteTable.insert(new Route(routeId, name, parsedTime));
+        VehicleTable.insert(new Vehicle("",vehicleType,routeId));
         for (Location location : loadedData) {
-            location.setRouteName(name);
-            location.setVehicleType(vehicleType);
-            // TODO add vehicle type in query
+            location.setRouteId(routeId);
             LocationTable.insert(location);
         }
     }
@@ -65,5 +72,9 @@ public abstract class Loader implements Runnable {
 
     protected void setLoadedData(Iterable<? extends Location> data) {
         this.loadedData = data;
+    }
+
+    protected void setParsedTime(long parsedTime) {
+        this.parsedTime = parsedTime;
     }
 }

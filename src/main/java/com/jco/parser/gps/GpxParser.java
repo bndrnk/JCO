@@ -52,12 +52,13 @@ public class GpxParser extends AbstractParser {
 
             String travelTime = root.getElementsByTagName(ParserUtilities.TIME_TAG)
                                     .item(ParserUtilities.FIRST_ITEM).getFirstChild().getNodeValue();
-            long timeLong = (travelTime == null ||
-                             travelTime.isEmpty()) ?
-                    ParserUtilities.DEFAULT_TIME_TRAVEL : Long.valueOf(travelTime);
+
+            setParsedTime((travelTime == null ||
+                    travelTime.isEmpty()) ?
+                    ParserUtilities.DEFAULT_TIME_TRAVEL : Long.valueOf(travelTime));
+
             Node coordinates = items.item(ParserUtilities.FIRST_ITEM);
             for (Location location : parseCoordinatesString(coordinates.getFirstChild().getNodeValue())) {
-                location.setTime(timeLong);
                 points.add(location);
             }
             inputStream.close();
@@ -81,7 +82,8 @@ public class GpxParser extends AbstractParser {
         Pattern pattern = Pattern.compile(ParserUtilities.SPLIT_PATTERN);
         List<Location> result = new ArrayList<Location>();
         String[] valueReference;
-        for(String currentValue : pattern.split(coordinatesString)) {
+        String[] strings = pattern.split(coordinatesString);
+        for(String currentValue : strings) {
             if (currentValue.isEmpty()) continue;
             valueReference = currentValue.split(ParserUtilities.COMMA);
             if (valueReference.length != ParserUtilities.COORDINATE_VALUES_COUNT) continue;

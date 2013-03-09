@@ -13,6 +13,7 @@ import java.io.InputStream;
 public abstract class AbstractParser {
 
     protected Iterable< ? extends Location> foundedData;
+    protected long parsedTime;
 
     /**
      *
@@ -28,4 +29,11 @@ public abstract class AbstractParser {
         this.foundedData = foundedData;
     }
 
+    public long getParsedTime() {
+        return parsedTime;
+    }
+
+    public void setParsedTime(long parsedTime) {
+        this.parsedTime = parsedTime;
+    }
 }

@@ -13,6 +13,7 @@ import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.events.JMVCommandEvent;
 import org.openstreetmap.gui.jmapviewer.interfaces.JMapViewerEventListener;
+import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
 import org.openstreetmap.gui.jmapviewer.interfaces.TileSource;
 import org.openstreetmap.gui.jmapviewer.tilesources.BingAerialTileSource;
 import org.openstreetmap.gui.jmapviewer.tilesources.MapQuestOpenAerialTileSource;
@@ -31,10 +32,28 @@ import java.awt.event.*;
  */
 public class JcoMap extends JFrame implements JMapViewerEventListener {
 
-    private static JMapViewer jMapViewer = null;
     private static JcoMap jcoMap = null;
+    private static Loader loader;
     private static boolean baseLocationIsExist = Boolean.FALSE;
-    private Loader loader;
+    private static Location baseLocation = null;
+
+    // Components
+    private static JMapViewer jMapViewer = null;
+    private static JButton runButton = new JButton(MapUtilities.RUN_BUTTON);
+    private static JButton saveButton = new JButton(MapUtilities.SAVE_BUTTON);
+    private static JButton cancelButton = new JButton(MapUtilities.CANCEL_BUTTON);
+    private static JTextField routeName = new JTextField(MapUtilities.ROUTE_NAME);
+    private static JLabel tileSourcesLabel = new JLabel(MapUtilities.TILE_SOURCES_LABEL);
+    private static JLabel vehicleInfo = new JLabel(MapUtilities.SELECTED_VEHICLE_INFO);
+    private static JLabel helpInfo = new JLabel(MapUtilities.HELP_INFO);
+    private static JLabel vehicleInfoLabel = new JLabel();
+    private static JSeparator separator = new JSeparator();
+    private static JCheckBox loadGpxCheckBox = new JCheckBox(MapUtilities.LOAD_GPX_LABEL);
+    private static JCheckBox loadNewBaseCoordinate = new JCheckBox(MapUtilities.LOAD_NEW_BASE_POINT);
+    private static JComboBox tileSourceSelector = new JComboBox(new TileSource[] { new OsmTileSource.Mapnik(),
+            new OsmTileSource.CycleMap(), new BingAerialTileSource(),
+            new MapQuestOsmTileSource(), new MapQuestOpenAerialTileSource() });
+    private static JComboBox vehiclesTypesCombo = new JComboBox(new Vehicle[] { new TruckMixer(), new WaterTruck()});
 
     /**
      * Instantiate map by latitude an longitude
@@ -44,6 +63,9 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         buildUi();
     }
 
+    /**
+     * Build application user interface
+     */
     private void buildUi() {
         setSize(MapUtilities.WIDTH, MapUtilities.HEIGHT);
 
@@ -51,38 +73,15 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         // by default we use Mapnik tile source
         jMapViewer.setTileSource(new OsmTileSource.Mapnik());
         jMapViewer.addJMVListener(this);
-        final Location baseLocation = LocationTable.selectBaseCoordinate();
-        baseLocationIsExist =  baseLocation != null;
-        // TODO use images for static markers
-        if (baseLocationIsExist)
-            jMapViewer.addMapMarker(new MapMarkerDot(Color.CYAN, baseLocation.getLatitude(), baseLocation.getLongitude()));
-
 
         // main frame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        // Components initialization;
-        final JButton runButton = new JButton(MapUtilities.RUN_BUTTON);
-        final JButton saveButton = new JButton(MapUtilities.SAVE_BUTTON);
+        // Components options
         saveButton.setEnabled(Boolean.FALSE);
-        final JButton cancelButton = new JButton(MapUtilities.CANCEL_BUTTON);
-        cancelButton.setEnabled(Boolean.FALSE);
-        final JTextField routeName = new JTextField(MapUtilities.ROUTE_NAME);
         routeName.setEnabled(Boolean.FALSE);
-        final JLabel tileSourcesLabel = new JLabel(MapUtilities.TILE_SOURCES_LABEL);
-        final JLabel vehicleInfo = new JLabel(MapUtilities.SELECTED_VEHICLE_INFO);
-        final JLabel helpInfo = new JLabel(MapUtilities.HELP_INFO);
-        final JLabel vehicleInfoLabel = new JLabel();
-        final JSeparator separator = new JSeparator();
         separator.setOrientation(JSeparator.HORIZONTAL);
-
-        final JCheckBox loadGpxCheckBox = new JCheckBox(MapUtilities.LOAD_GPX_LABEL);
-        final JCheckBox loadNewBaseCoordinate = new JCheckBox(MapUtilities.LOAD_NEW_BASE_POINT);
-        final JComboBox tileSourceSelector = new JComboBox(new TileSource[] { new OsmTileSource.Mapnik(),
-                new OsmTileSource.CycleMap(), new BingAerialTileSource(),
-                new MapQuestOsmTileSource(), new MapQuestOpenAerialTileSource() });
-        final JComboBox vehiclesTypesCombo = new JComboBox(new Vehicle[] { new TruckMixer(), new WaterTruck()});
         vehiclesTypesCombo.setEnabled(Boolean.FALSE);
 
         // Set maximum sizes
@@ -159,32 +158,73 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
                                 .addComponent(runButton)
                         )));
 
-        // set components listeners
+        setEventsHandlers();
+    }
+
+    /**
+     * Handle events
+     */
+    private static void setEventsHandlers() {
+        baseLocation = LocationTable.selectBaseLocation();
+        baseLocationIsExist =  baseLocation != null;
+        if (baseLocationIsExist)
+            jMapViewer.addMapMarker(new MapMarkerDot(Color.CYAN, baseLocation.getLatitude(), baseLocation.getLongitude()));
+        else {
+            loadNewBaseCoordinate.setSelected(Boolean.TRUE);
+            saveButton.setEnabled(Boolean.TRUE);
+            runButton.setEnabled(Boolean.FALSE);
+        }
+
+        jMapViewer.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    Coordinate coordinate = jMapViewer.getPosition(e.getPoint());
+
+                    if (loadGpxCheckBox.isSelected()) {
+                        Color routeColor = new Color(getRandomValue(), getRandomValue(), getRandomValue());
+                        jMapViewer.addMapMarker(new MapMarkerDot(routeColor,coordinate.getLat(), coordinate.getLon()));
+
+                        // todo send to loader locations (base and selected)
+//                       TODO selected location must contain incremented routeID
+                        loader =  new YoursLoader(jMapViewer, routeColor, new Coordinate(baseLocation.getLatitude(), baseLocation.getLongitude()), coordinate);
+                        new Thread(loader).start();
+                    } else if (loadNewBaseCoordinate.isSelected()) {
+                        jMapViewer.removeAllMapMarkers();
+                        jMapViewer.addMapMarker(new MapMarkerDot(coordinate.getLat(), coordinate.getLon()));
+                    }
+                    saveButton.setEnabled(!MapUtilities.EMPTY.equals(routeName.getText()) &&
+                            !MapUtilities.ROUTE_NAME.equals(routeName.getText())
+                            && jMapViewer.getMapMarkerList().size() > 1);
+                }
+            }
+        });
+
+        // checkboxes
         loadGpxCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO use methods instead check conditions
                 if (baseLocationIsExist) {
-                    runButton.setEnabled(!loadGpxCheckBox.isSelected() &&
-                                         !loadNewBaseCoordinate.isSelected() &&
-                                         !baseLocationIsExist);
-
-                    saveButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
-                    cancelButton.setEnabled(loadGpxCheckBox.isSelected() || loadNewBaseCoordinate.isSelected());
-                    routeName.setEnabled(loadGpxCheckBox.isSelected());
-                    vehiclesTypesCombo.setEnabled(loadGpxCheckBox.isSelected());
+                    loadNewBaseCoordinate.setSelected(Boolean.FALSE);
+                    disableComponents();
+                } else {
+                    loadGpxCheckBox.setSelected(Boolean.FALSE);
                 }
             }
         });
         loadNewBaseCoordinate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                runButton.setEnabled(!loadNewBaseCoordinate.isSelected() && !loadGpxCheckBox.isSelected());
-
-                saveButton.setEnabled(loadNewBaseCoordinate.isSelected() || loadGpxCheckBox.isSelected());
-                cancelButton.setEnabled(loadNewBaseCoordinate.isSelected() || loadGpxCheckBox.isSelected());
+                if (baseLocationIsExist) {
+                    loadGpxCheckBox.setSelected(Boolean.FALSE);
+                    disableComponents();
+                } else {
+                    loadNewBaseCoordinate.setSelected(Boolean.TRUE);
+                }
             }
         });
+
+        // Buttons
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -194,20 +234,43 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                // TODO Check data saving
-                loader.saveToDatabase(routeName.getText(), String.valueOf(vehiclesTypesCombo.getSelectedItem()));
+                if (loadGpxCheckBox.isSelected()) {
+                    loader.saveToDatabase(routeName.getText(), String.valueOf(vehiclesTypesCombo.getSelectedItem()));
+                } else if (loadNewBaseCoordinate.isSelected()){
+                    // todo save base coordinate;
+                    MapMarker marker = jMapViewer.getMapMarkerList().get(0);
+                    if (!baseLocationIsExist && marker != null) {
+                        Location location = new Location(marker.getLat(), marker.getLon());
+                        location.setLocationName(LocationTable.BASE);
+                        if (LocationTable.insert(location) > 0) {
+                            baseLocationIsExist = Boolean.TRUE;
+                            baseLocation = location;
+                            saveButton.setEnabled(Boolean.FALSE);
+                        }
+                    } else {
+                        // TODO show user confirmation message if base location is exist
+                    }
+                }
             }
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                // TODO interrupt run threads
+                jMapViewer.removeAllMapMarkers();
+                jMapViewer.removeAllMapPolygons();
+                saveButton.setEnabled(Boolean.FALSE);
+                if (baseLocationIsExist) {
+                    jMapViewer.addMapMarker(new MapMarkerDot(baseLocation.getLatitude(), baseLocation.getLongitude()));
+                }
             }
         });
+
         routeName.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                saveButton.setEnabled(!MapUtilities.EMPTY.equals(routeName.getText()));
+                saveButton.setEnabled(!MapUtilities.EMPTY.equals(routeName.getText())
+                        && jMapViewer.getMapMarkerList().size() > 1);
             }
         });
         routeName.addMouseListener(new MouseAdapter() {
@@ -216,31 +279,52 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
                 if (MapUtilities.ROUTE_NAME.equalsIgnoreCase(routeName.getText())) {
                     routeName.setText(MapUtilities.EMPTY);
                 }
+                if (routeName.getText().isEmpty()
+                        && jMapViewer.getMapMarkerList().size() > 1) {
+                    saveButton.setEnabled(Boolean.FALSE);
+                }
             }
         });
+
         tileSourceSelector.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 jMapViewer.setTileSource((TileSource) e.getItem());
             }
         });
-        jMapViewer.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    if (loadGpxCheckBox.isSelected()) {
-                        Coordinate coordinate = jMapViewer.getPosition(e.getPoint());
-                        int red = (int)(255*Math.random());
-                        int green = (int)(255*Math.random());
-                        int blue = (int)(255*Math.random());
-                        Color routeColor = new Color(red,green,blue);
-                        jMapViewer.addMapMarker(new MapMarkerDot(routeColor,coordinate.getLat(), coordinate.getLon()));
-                        loader =  new YoursLoader(jMapViewer, routeColor, coordinate);
-                        new Thread(loader).start();
-                    }
-                }
-            }
-        });
+    }
+
+    /**
+     * Logic of components locking
+     */
+    private static void disableComponents() {
+
+        if (loadGpxCheckBox.isSelected()) {
+            saveButton.setEnabled(!routeName.getText().isEmpty() && jMapViewer.getMapMarkerList().size() > 1);
+            routeName.setEnabled(Boolean.TRUE);
+            vehiclesTypesCombo.setEnabled(Boolean.TRUE);
+            runButton.setEnabled(Boolean.FALSE);
+        } else if (loadNewBaseCoordinate.isSelected()) {
+            saveButton.setEnabled(Boolean.TRUE);
+            routeName.setEnabled(Boolean.FALSE);
+            vehiclesTypesCombo.setEnabled(Boolean.FALSE);
+            runButton.setEnabled(Boolean.FALSE);
+        } else {
+            saveButton.setEnabled(Boolean.FALSE);
+            routeName.setEnabled(Boolean.FALSE);
+            vehiclesTypesCombo.setEnabled(Boolean.FALSE);
+            runButton.setEnabled(Boolean.TRUE);
+        }
+    }
+
+    /**
+     * Returns random integer
+     * value for built color;
+     *
+     * @return integer
+     */
+    private static int getRandomValue() {
+        return (int)(255*Math.random());
     }
 
     /**
