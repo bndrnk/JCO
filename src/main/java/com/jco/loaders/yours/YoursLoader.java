@@ -8,6 +8,7 @@ import com.jco.parser.gps.GpxParser;
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,8 +51,9 @@ import java.net.URL;
  */
 public class YoursLoader extends Loader {
 
-    public YoursLoader(JMapViewer mapViewer, Coordinate coordinate) {
+    public YoursLoader(JMapViewer mapViewer, Color routeColor, Coordinate coordinate) {
         this.viewer = mapViewer;
+        this.routeColor = routeColor;
         this.selectedCoordinate = coordinate;
     }
 

@@ -230,8 +230,12 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     if (loadGpxCheckBox.isSelected()) {
                         Coordinate coordinate = jMapViewer.getPosition(e.getPoint());
-                        jMapViewer.addMapMarker(new MapMarkerDot(coordinate.getLat(), coordinate.getLon()));
-                        loader =  new YoursLoader(jMapViewer, coordinate);
+                        int red = (int)(255*Math.random());
+                        int green = (int)(255*Math.random());
+                        int blue = (int)(255*Math.random());
+                        Color routeColor = new Color(red,green,blue);
+                        jMapViewer.addMapMarker(new MapMarkerDot(routeColor,coordinate.getLat(), coordinate.getLon()));
+                        loader =  new YoursLoader(jMapViewer, routeColor, coordinate);
                         new Thread(loader).start();
                     }
                 }

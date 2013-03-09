@@ -22,11 +22,12 @@ public abstract class Loader implements Runnable {
     private Iterable<? extends Location> loadedData;
     protected Coordinate selectedCoordinate;
     protected JMapViewer viewer;
+    protected Color routeColor;
 
     @Override
     public void run() {
         loadData(selectedCoordinate);
-        viewer.addMapPolygon(new LinePolygon(getCoordinates(), Color.RED, new BasicStroke(4)));
+        viewer.addMapPolygon(new LinePolygon(getCoordinates(), routeColor, new BasicStroke(4)));
     }
 
     /**
