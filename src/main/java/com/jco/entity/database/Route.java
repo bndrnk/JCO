@@ -9,18 +9,14 @@ package com.jco.entity.database;
 public class Route {
 
     private long routeId;
-    private String routeName;
     private long routeTime;
 
     public Route() {
-
     }
 
-    public Route(long routeId, String name, long time) {
+    public Route(long routeId) {
         this();
         this.routeId = routeId;
-        this.routeName = name;
-        this.routeTime = time;
     }
 
     public long getRouteId() {
@@ -29,14 +25,6 @@ public class Route {
 
     public void setRouteId(long routeId) {
         this.routeId = routeId;
-    }
-
-    public String getRouteName() {
-        return routeName;
-    }
-
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
     }
 
     public long getRouteTime() {

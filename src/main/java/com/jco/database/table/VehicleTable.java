@@ -5,7 +5,9 @@ import com.jco.database.queries.QueriesUtility;
 import com.jco.entity.database.Vehicle;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Class discription
@@ -40,5 +42,49 @@ public class VehicleTable {
                 }
         }
         return 0;
+    }
+
+    public static void clean() {
+        Statement statement = null;
+        try {
+            statement = DatabaseManager.getConnection().createStatement();
+            statement.executeUpdate(QueriesUtility.DELETE_VEHICLES);
+        } catch (SQLException e) {
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    public static Vehicle selectVehicle(long routeId) {
+        Vehicle vehicle = new Vehicle();
+        PreparedStatement statement = null;
+        try {
+            statement = DatabaseManager.getConnection().prepareStatement(QueriesUtility.SELECT_VEHILE_BY_ROUTE);
+            statement.setLong(1, routeId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                vehicle.setVehicleId(resultSet.getLong(VEHICLE_ID_FILED));
+                vehicle.setVehicleName(resultSet.getString(VEHICLE_NAME_FIELD));
+                vehicle.setVehicleType(resultSet.getString(VEHICLE_TYPE_FIELD));
+                vehicle.setRouteId(resultSet.getLong(ROUTE_ID_FIELD));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (statement != null)
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return vehicle;
     }
 }

@@ -3,7 +3,6 @@ package com.jco.database.table;
 import com.jco.database.DatabaseManager;
 import com.jco.database.queries.QueriesUtility;
 import com.jco.entity.database.Location;
-import org.openstreetmap.gui.jmapviewer.Coordinate;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,8 +21,8 @@ public class LocationTable {
 
     private static final String LATITUDE_FIELD = "LATITUDE";
     private static final String LONGITUDE_FIELD = "LONGITUDE";
-    private static final String ROUTE_ID_FIELD = "LONGITUDE";
-    public static final String BASE = "BASE";
+    private static final String ROUTE_ID_FIELD = "ROUTE_ID";
+    private static final String BASE = "BASE";
 
     /**
      * Insert new location instance into database table LOCATION
@@ -82,25 +81,20 @@ public class LocationTable {
     }
 
     /**
-     * Get initialized {@link List} with {@link Coordinate}
-     *
-     * @param name Track name
-     * @return {@link List} with {@link Coordinate} or Empty;
+     * Get initialized {@link List} with {@link Location}
+     * @return {@link List} with {@link Location} or Empty;
      */
-    public static List<Coordinate> getRouteByName(String name) {
-        if (name == null) {
-            throw new IllegalArgumentException("Route name is null");
-        }
-        List<Coordinate> resultList = new ArrayList<Coordinate>();
+    public static List<Location> selectLocations(long routeId) {
+        List<Location> resultList = new ArrayList<Location>();
         PreparedStatement statement = null;
         try {
-            statement = DatabaseManager.getConnection().prepareStatement(QueriesUtility.SELECT_LOCATIONS_BY_NAME);
-            statement.setString(1, name);
+            statement = DatabaseManager.getConnection().prepareStatement(QueriesUtility.SELECT_LOCATIONS_BY_ROUTE_ID);
+            statement.setLong(1, routeId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 double latitude = resultSet.getDouble(LATITUDE_FIELD);
                 double longitude = resultSet.getDouble(LONGITUDE_FIELD);
-                resultList.add(new Coordinate(latitude, longitude));
+                resultList.add(new Location(latitude, longitude));
             }
             resultSet.close();
         } catch (SQLException e) {
@@ -116,9 +110,66 @@ public class LocationTable {
         return resultList;
     }
 
+    public static int insertNewBaseLocation(Location location) {
+        PreparedStatement statement = null;
+        try {
+            statement = DatabaseManager.getConnection().prepareStatement(QueriesUtility.INSERT_NEW_BASE_LOCATION);
+            int index = 1;
+            statement.setLong(index++, 1);
+            statement.setString(index++, BASE);
+            statement.setDouble(index++, location.getLatitude());
+            statement.setDouble(index++, location.getLongitude());
+            statement.setLong(index++, 0);
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                closeConnections(statement);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
     public static void closeConnections(PreparedStatement statement) throws SQLException {
         if (statement != null) {
             statement.close();
+        }
+    }
+
+    public static void clean() {
+        Statement statement = null;
+        try {
+            statement = DatabaseManager.getConnection().createStatement();
+            statement.executeUpdate(QueriesUtility.DELETE_LOCATION);
+        } catch (SQLException e) {
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void deleteBaseLocation() {
+        Statement statement = null;
+        try {
+            statement = DatabaseManager.getConnection().createStatement();
+            statement.executeUpdate(QueriesUtility.DELETE_BASE_LOCATION);
+        } catch (SQLException e) {
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

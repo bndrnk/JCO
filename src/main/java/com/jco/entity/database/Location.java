@@ -23,6 +23,11 @@ public class Location implements Serializable {
         this.longitude = lon;
     }
 
+    public Location(double lat, double lon, long routeId) {
+        this(lat,lon);
+        this.routeId = routeId;
+    }
+
     public long getRouteId() {
         return routeId;
     }

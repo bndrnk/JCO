@@ -1,17 +1,15 @@
 package com.jco.loaders.yours;
 
-import com.jco.database.table.LocationTable;
 import com.jco.entity.database.Location;
 import com.jco.loaders.Loader;
 import com.jco.parser.AbstractParser;
 import com.jco.parser.gps.GpxParser;
-import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 /**
  * Using http://www.yournavigation.org route service
@@ -49,20 +47,22 @@ import java.net.URL;
  */
 public class YoursLoader extends Loader {
 
-    public YoursLoader(JMapViewer mapViewer, Color routeColor, Coordinate baseCoordinate, Coordinate selectedCoordinate) {
+    public YoursLoader(JMapViewer mapViewer) {
         this.viewer = mapViewer;
-        this.routeColor = routeColor;
-        this.baseCoordinate = baseCoordinate;
-        this.selectedCoordinate = selectedCoordinate;
     }
 
     @Override
-    public void loadData(Coordinate coordinate) {
+    public void loadData(Location location) {
         try {
             AbstractParser parser = new GpxParser();
-            parser.parse(new URL(prepareRequestUrl(coordinate)).openStream());
-            setLoadedData(parser.getFoundedData());
-            setParsedTime(parser.getParsedTime());
+            parser.parse(new URL(prepareRequestUrl(location)).openStream());
+
+            List<Location> foundedLocations = parser.getFoundedData();
+            for (Location foundedLocation : foundedLocations) {
+                foundedLocation.setRouteId(location.getRouteId());
+            }
+            setLoadedData(foundedLocations);
+            routesTime.put(location.getRouteId(), parser.getParsedTime());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -70,17 +70,23 @@ public class YoursLoader extends Loader {
         }
     }
 
-    private String prepareRequestUrl(Coordinate finishCoordinate) {
+    /**
+     * Prepare request url by locations
+     * @param selectedLocation {@link Location}
+     * @return request url
+     */
+    private String prepareRequestUrl(Location selectedLocation) {
         StringBuilder builder = new StringBuilder();
-        if (baseCoordinate != null && finishCoordinate != null) {
+        Location baseLocation = getBaseLocation();
+        if (baseLocation != null && selectedLocation != null) {
             builder.append("http://www.yournavigation.org/api/1.0/gosmore.php?format=kml&flat=")
-            .append(baseCoordinate.getLat())
+            .append(baseLocation.getLatitude())
             .append("&flon=")
-            .append(baseCoordinate.getLon())
+            .append(baseLocation.getLongitude())
             .append("&tlat=")
-            .append(finishCoordinate.getLat())
+            .append(selectedLocation.getLatitude())
             .append("&tlon=")
-            .append(finishCoordinate.getLon())
+            .append(selectedLocation.getLongitude())
             .append("&v=motorcar&fast=0");
         } else {
             throw new IllegalArgumentException("Coordinates is null!");

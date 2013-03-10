@@ -3,6 +3,7 @@ package com.jco.parser;
 import com.jco.entity.database.Location;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * Class discription
@@ -12,7 +13,7 @@ import java.io.InputStream;
  */
 public abstract class AbstractParser {
 
-    protected Iterable< ? extends Location> foundedData;
+    protected List<Location> foundedData;
     protected long parsedTime;
 
     /**
@@ -21,11 +22,11 @@ public abstract class AbstractParser {
      */
     public abstract void parse(InputStream stream);
 
-    public Iterable<? extends Location> getFoundedData() {
+    public List<Location> getFoundedData() {
         return foundedData;
     }
 
-    protected void setFoundedData(Iterable<? extends Location> foundedData) {
+    protected void setFoundedData(List<Location> foundedData) {
         this.foundedData = foundedData;
     }
 

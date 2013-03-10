@@ -27,7 +27,6 @@ import java.awt.*;
      static final String LOAD_NEW_BASE_POINT = "Load new Base coordinate";
      static final String RUN_BUTTON = "Run";
      static final String STRING_FORMAT_PATTERN = "%s";
-     static final String ROUTE_NAME = "Enter route name";
 
     /**
      * Components dimensions
@@ -35,7 +34,6 @@ import java.awt.*;
      static final Dimension VEHICLE_INFO_LABEL_DIMENSION = new Dimension(250, 800);
      static final Dimension SEPARATOR_DIMENSION = new Dimension(250, 1);
      static final Dimension TILE_SOURCE_DIMENSION = new Dimension(40, 1);
-     static final Dimension ROUTE_SOURCE_DIMENSION = new Dimension(200, 25);
 
 
     public static final String HELP_INFO = "<html><br>Before saving data, you should select location on map.<br>In case if base coordinate doesn't defined, you should define it first of all.</html>";
