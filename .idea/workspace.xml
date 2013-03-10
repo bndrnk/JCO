@@ -7,26 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c40d0676-3f2e-48fd-8860-0c49c59d05af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/schema.sql" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/Vehicle.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/JMapViewer.jar" afterPath="$PROJECT_DIR$/lib/JMapViewer.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/JMapViewer_src.jar" afterPath="$PROJECT_DIR$/lib/JMapViewer_src.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/JavaCostOptimizer.jar" afterPath="$PROJECT_DIR$/target/JavaCostOptimizer.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Location.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Location.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/database/table/LocationTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/database/table/LocationTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/map/MapUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/map/MapUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/database/queries/QueriesUtility.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/database/queries/QueriesUtility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Route.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Route.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/database/table/RouteTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/database/table/RouteTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/Jco.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/Jco.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JCO.iws" />
@@ -40,10 +22,10 @@
     <file path="/EntitiesUtility.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362769992363" ignored="false" />
     <file path="/Vehicle.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362929102492" ignored="false" />
     <file path="/TruckMixer.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362733716120" ignored="false" />
-    <file path="/Dummy.txt" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362932795655" ignored="false" />
-    <file path="/Jco.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362594879845" ignored="false" />
+    <file path="/Dummy.txt" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940523249" ignored="false" />
+    <file path="/Jco.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940606698" ignored="false" />
     <file path="/LocationTable.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362932920485" ignored="false" />
-    <file path="/DatabaseManager.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362253323288" ignored="false" />
+    <file path="/DatabaseManager.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940727757" ignored="false" />
     <file path="/pom.xml" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362594969997" ignored="false" />
     <file path="/MapUtilities.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362769969333" ignored="false" />
     <file path="/connection.properties" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362687965484" ignored="false" />
@@ -134,28 +116,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AnimationRunner.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="32" selection-start="2546" selection-end="2546" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JcoMap.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JcoMap.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="348" column="48" selection-start="14977" selection-end="14977" vertical-scroll-proportion="0.40677965">
+            <state line="349" column="99" selection-start="14987" selection-end="14987" vertical-scroll-proportion="-8.4">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/base.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="Loader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="38" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YoursLoader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="59" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractVehicle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="46" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TruckMixer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="13" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WaterTruck.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseManager.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="39" selection-start="336" selection-end="336" vertical-scroll-proportion="0.32846716">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserUtilities.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/ParserUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="19" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="22" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GpxParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/gps/GpxParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="89" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -177,8 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Route.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jco/database/table/RouteTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/Vehicle.java" />
@@ -193,6 +238,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jco/database/queries/QueriesUtility.java" />
         <option value="$PROJECT_DIR$/database/schema.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/Jco.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java" />
       </list>
     </option>
   </component>
@@ -317,10 +364,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -374,7 +417,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="map" />
+              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -727,7 +770,11 @@
       <created>1362864292676</created>
       <updated>1362864292676</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="database schema; saving logic implementation &amp;&amp; animation">
+      <created>1362940536565</created>
+      <updated>1362940536565</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -817,7 +864,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="insert data to tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="database schema; saving logic implementation &amp;&amp; animation" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -838,6 +885,7 @@
     <MESSAGE value="added loaders;&#10;Routing logic implementation;" />
     <MESSAGE value="random colors" />
     <MESSAGE value="insert data to tables" />
+    <MESSAGE value="database schema; saving logic implementation &amp;&amp; animation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -847,80 +895,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/EntitiesUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="62" selection-start="544" selection-end="555" vertical-scroll-proportion="0.57481754">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="41" selection-start="344" selection-end="344" vertical-scroll-proportion="0.4379562">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/database/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="159" selection-end="159" vertical-scroll-proportion="0.44510385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="26" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.30860534">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="1" selection-start="3958" selection-end="3958" vertical-scroll-proportion="3.537092">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="32" selection-start="1054" selection-end="1068" vertical-scroll-proportion="0.5133531">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/database/Vehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="190" selection-end="190" vertical-scroll-proportion="0.48961425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/Jco.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="51" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="28" selection-start="3694" selection-end="3694" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/table/LocationTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="49" selection-start="4619" selection-end="4619" vertical-scroll-proportion="2.5043936">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/queries/QueriesUtility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="37" selection-start="555" selection-end="555" vertical-scroll-proportion="0.44622424">
@@ -954,9 +928,79 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/Jco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/ParserUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="19" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/gps/GpxParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="89" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="22" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="348" column="48" selection-start="14977" selection-end="14977" vertical-scroll-proportion="0.40677965">
+        <state line="349" column="99" selection-start="14987" selection-end="14987" vertical-scroll-proportion="-8.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="38" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="59" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="46" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="39" selection-start="336" selection-end="336" vertical-scroll-proportion="0.32846716">
           <folding />
         </state>
       </provider>

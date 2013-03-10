@@ -14,6 +14,10 @@ import java.util.ResourceBundle;
  */
 public class DatabaseManager {
 
+    // TODO REWRITE DATABASE MANAGER!!!
+
+
+
     private static final ResourceBundle db = ResourceBundle.getBundle("connection");;
     private static final String URL;
     private static final String UID;
