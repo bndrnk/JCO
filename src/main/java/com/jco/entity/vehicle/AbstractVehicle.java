@@ -1,4 +1,4 @@
-package com.jco.entity.vehicles;
+package com.jco.entity.vehicle;
 
 import com.jco.entity.database.Location;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Abstract AbstractVehicle which contains
- * base information about all vehicles in project
+ * base information about all vehicle in project
  *
  * @author Bondoronok_P
  *         Date: 02.03.13
@@ -26,7 +26,7 @@ public abstract class AbstractVehicle implements Serializable {
     protected String vehicleName;
     protected List<Location> vehicleRoute;
 
-    public abstract String getVehicleType();
+    public abstract VehicleTypeEnum getVehicleType();
 
     public List<Location> getVehicleRoute() {
         return this.vehicleRoute;
@@ -44,12 +44,13 @@ public abstract class AbstractVehicle implements Serializable {
         this.vehicleColor = vehicleColor;
     }
 
+
     public String getVehicleName() {
         return vehicleName;
     }
 
     @Override
     public String toString() {
-        return getVehicleType();
+        return getVehicleType().getName();
     }
 }

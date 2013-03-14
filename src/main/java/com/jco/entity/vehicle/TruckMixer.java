@@ -1,4 +1,4 @@
-package com.jco.entity.vehicles;
+package com.jco.entity.vehicle;
 
 import com.jco.entity.EntitiesUtility;
 
@@ -15,7 +15,7 @@ public class TruckMixer extends AbstractVehicle {
 
     public TruckMixer() {
         super();
-        setVehicleColor(EntitiesUtility.TRUCK_MIXER_COLOR);
+        setVehicleColor(EntitiesUtility.DEFAULT_COLOR);
     }
 
     public TruckMixer(Color color) {
@@ -24,7 +24,7 @@ public class TruckMixer extends AbstractVehicle {
     }
 
     @Override
-    public String getVehicleType() {
-        return EntitiesUtility.TRUCK_MIXER_TYPE;
+    public VehicleTypeEnum getVehicleType() {
+        return VehicleTypeEnum.TRUCK_MIXER;
     }
 }

@@ -7,9 +7,10 @@ import com.jco.entity.EntitiesUtility;
 import com.jco.entity.database.Location;
 import com.jco.entity.database.Route;
 import com.jco.entity.database.Vehicle;
-import com.jco.entity.vehicles.AbstractVehicle;
-import com.jco.entity.vehicles.TruckMixer;
-import com.jco.entity.vehicles.WaterTruck;
+import com.jco.entity.vehicle.AbstractVehicle;
+import com.jco.entity.vehicle.TruckMixer;
+import com.jco.entity.vehicle.VehicleTypeEnum;
+import com.jco.entity.vehicle.WaterTruck;
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.LinePolygon;
@@ -47,9 +48,10 @@ public final class AnimationRunner {
         for (Route route : routes) {
             Vehicle foundedVehicle = VehicleTable.selectVehicle(route.getRouteId());
             Color color = new Color(getRandomValue(),getRandomValue(),getRandomValue());
-            if (EntitiesUtility.WATER_TRUCK_TYPE.equals(foundedVehicle.getVehicleType())) {
+            // TODO avoid this ...
+            if (VehicleTypeEnum.WATER_TRUCK.getName().equals(foundedVehicle.getVehicleType())) {
                 initializeVehicle(new WaterTruck(color), route.getRouteId());
-            } else if (EntitiesUtility.TRUCK_MIXER_TYPE.equals(foundedVehicle.getVehicleType())) {
+            } else if (VehicleTypeEnum.TRUCK_MIXER.getName().equals(foundedVehicle.getVehicleType())) {
                 initializeVehicle(new TruckMixer(color), route.getRouteId());
             }
         }
@@ -94,6 +96,6 @@ public final class AnimationRunner {
         for (Location location : vehicle.getVehicleRoute()) {
             coordinates.add(new Coordinate(location.getLatitude(), location.getLongitude()));
         }
-        viewer.addMapPolygon(new LinePolygon(coordinates, vehicle.getVehicleColor(), new BasicStroke(2)));
+        viewer.addMapPolygon(new LinePolygon(coordinates, vehicle.getVehicleColor(), new BasicStroke(6)));
     }
 }

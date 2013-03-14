@@ -4,15 +4,16 @@ import com.jco.animation.AnimationRunner;
 import com.jco.database.table.LocationTable;
 import com.jco.entity.database.Location;
 import com.jco.entity.database.Route;
-import com.jco.entity.vehicles.AbstractVehicle;
-import com.jco.entity.vehicles.TruckMixer;
-import com.jco.entity.vehicles.WaterTruck;
+import com.jco.entity.vehicle.AbstractVehicle;
+import com.jco.entity.vehicle.TruckMixer;
+import com.jco.entity.vehicle.VehicleTypeEnum;
+import com.jco.entity.vehicle.WaterTruck;
+import com.jco.i18n.I18n;
 import com.jco.loaders.Loader;
 import com.jco.loaders.yours.YoursLoader;
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
-import org.openstreetmap.gui.jmapviewer.MapMarkerImage;
 import org.openstreetmap.gui.jmapviewer.events.JMVCommandEvent;
 import org.openstreetmap.gui.jmapviewer.interfaces.JMapViewerEventListener;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
@@ -26,7 +27,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,26 +50,26 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
 
     // Components
     private static JMapViewer jMapViewer = null;
-    private static JButton runButton = new JButton(MapUtilities.RUN_BUTTON);
-    private static JButton saveButton = new JButton(MapUtilities.SAVE_BUTTON);
-    private static JButton cancelButton = new JButton(MapUtilities.CANCEL_BUTTON);
-    private static JLabel tileSourcesLabel = new JLabel(MapUtilities.TILE_SOURCES_LABEL);
-    private static JLabel vehicleInfo = new JLabel(MapUtilities.SELECTED_VEHICLE_INFO);
-    private static JLabel helpInfo = new JLabel(MapUtilities.HELP_INFO);
+    private static JButton runButton = new JButton(I18n.BUTTON_RUN.getText());
+    private static JButton saveButton = new JButton(I18n.BUTTON_SAVE.getText());
+    private static JButton cancelButton = new JButton(I18n.BUTTON_CANCEL.getText());
+    private static JLabel tileSourcesLabel = new JLabel(I18n.TILE_SOURCE.getText());
+    private static JLabel vehicleInfo = new JLabel(I18n.SELECTED_ITEM.getText());
+    private static JLabel helpInfo = new JLabel(I18n.LOAD_GPX_TIP.getText());
     private static JLabel vehicleInfoLabel = new JLabel();
     private static JSeparator separator = new JSeparator();
-    private static JCheckBox loadGpxCheckBox = new JCheckBox(MapUtilities.LOAD_GPX_LABEL);
-    private static JCheckBox loadNewBaseCoordinate = new JCheckBox(MapUtilities.LOAD_NEW_BASE_POINT);
+    private static JCheckBox loadGpxCheckBox = new JCheckBox(I18n.LOAD_ROUTE.getText());
+    private static JCheckBox loadNewBaseCoordinate = new JCheckBox(I18n.LOAD_BASE_COORDINATE.getText());
     private static JComboBox tileSourceSelector = new JComboBox(new TileSource[] { new OsmTileSource.Mapnik(),
             new OsmTileSource.CycleMap(), new BingAerialTileSource(),
             new MapQuestOsmTileSource(), new MapQuestOpenAerialTileSource() });
-    private static JComboBox vehiclesTypesCombo = new JComboBox(new AbstractVehicle[] { new TruckMixer(), new WaterTruck()});
+    private static JComboBox vehiclesTypesCombo;
 
     /**
      * Instantiate map by latitude an longitude
      */
     private JcoMap() {
-        super(MapUtilities.FRAME_HEADER);
+        super(I18n.TITLE.getText());
         buildUi();
     }
 
@@ -95,6 +95,7 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
         // main frame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        initializeVehicleCheckbox();
 
         // Components options
         saveButton.setEnabled(Boolean.FALSE);
@@ -348,6 +349,16 @@ public class JcoMap extends JFrame implements JMapViewerEventListener {
     @Override
     public void processCommand(JMVCommandEvent command) {
 
+    }
+
+    private static void initializeVehicleCheckbox() {
+        int typesSize = VehicleTypeEnum.values().length;
+        int index = 0;
+        String[] allVehileTypes = new String[typesSize];
+        for (VehicleTypeEnum value : VehicleTypeEnum.values()) {
+            allVehileTypes[index++] = value.getName();
+        }
+        vehiclesTypesCombo = new JComboBox(allVehileTypes);
     }
 
     private static void removeMarkersAndPolygonsFromMap() {

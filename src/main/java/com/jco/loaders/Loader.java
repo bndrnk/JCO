@@ -6,6 +6,7 @@ import com.jco.database.table.VehicleTable;
 import com.jco.entity.database.Location;
 import com.jco.entity.database.Route;
 import com.jco.entity.database.Vehicle;
+import com.jco.entity.vehicle.VehicleTypeEnum;
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.LinePolygon;

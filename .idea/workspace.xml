@@ -7,8 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c40d0676-3f2e-48fd-8860-0c49c59d05af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jco/i18n/I18n.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/VehicleTypeEnum.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/i18n_ru_RU.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/AbstractVehicle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/TruckMixer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/WaterTruck.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/entity/EntitiesUtility.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/entity/EntitiesUtility.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/Jco.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/Jco.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java" afterPath="$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JCO.iws" />
@@ -16,21 +25,21 @@
     <file path="/TestClass.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362598130614" ignored="false" />
     <file path="/JSONArray.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362581392393" ignored="false" />
     <file path="/JsonParser.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362580668375" ignored="false" />
-    <file path="/JcoMap.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940320152" ignored="false" />
+    <file path="/JcoMap.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363200040938" ignored="false" />
     <file path="/a.dummy" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362932057560" ignored="false" />
-    <file path="/WaterTruck.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362929182958" ignored="false" />
-    <file path="/EntitiesUtility.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362769992363" ignored="false" />
-    <file path="/Vehicle.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362929102492" ignored="false" />
-    <file path="/TruckMixer.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362733716120" ignored="false" />
-    <file path="/Dummy.txt" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940523249" ignored="false" />
+    <file path="/WaterTruck.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363106468369" ignored="false" />
+    <file path="/EntitiesUtility.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363106478546" ignored="false" />
+    <file path="/Vehicle.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363106821385" ignored="false" />
+    <file path="/TruckMixer.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363106491586" ignored="false" />
+    <file path="/Dummy.txt" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363240670903" ignored="false" />
     <file path="/Jco.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940606698" ignored="false" />
     <file path="/LocationTable.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362932920485" ignored="false" />
     <file path="/DatabaseManager.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362940727757" ignored="false" />
     <file path="/pom.xml" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362594969997" ignored="false" />
     <file path="/MapUtilities.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362769969333" ignored="false" />
     <file path="/connection.properties" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362687965484" ignored="false" />
-    <file path="/AnimationRunner.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362929726869" ignored="false" />
-    <file path="/Loader.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362931917572" ignored="false" />
+    <file path="/AnimationRunner.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363105167314" ignored="false" />
+    <file path="/Loader.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363106851469" ignored="false" />
     <file path="/GpxDataLoader.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362761018662" ignored="false" />
     <file path="/fragment.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362769544680" ignored="false" />
     <file path="/Location.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362908639674" ignored="false" />
@@ -41,7 +50,13 @@
     <file path="/ParserUtilities.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362769949218" ignored="false" />
     <file path="/RouteTable.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362926330632" ignored="false" />
     <file path="/Route.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362861071205" ignored="false" />
-    <file path="/VehicleTable.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1362927547709" ignored="false" />
+    <file path="/VehicleTable.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363106793578" ignored="false" />
+    <file path="/AbstractVehicle.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363103087447" ignored="false" />
+    <file path="/VehicleTypeEnum.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363103583703" ignored="false" />
+    <file path="/l10n.properties" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363192055574" ignored="false" />
+    <file path="/L10n.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363193637930" ignored="false" />
+    <file path="/I18n.java" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363199764476" ignored="false" />
+    <file path="/i18n_ru_RU.properties" changelist="c40d0676-3f2e-48fd-8860-0c49c59d05af" time="1363200372205" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,22 +71,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="jar://$PROJECT_DIR$/lib/JMapViewer_src.jar!/org/openstreetmap/gui/jmapviewer/JMapViewer.java" line="868" class="org.openstreetmap.gui.jmapviewer.JMapViewer" package="org.openstreetmap.gui.jmapviewer">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -106,7 +106,22 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="jar://$PROJECT_DIR$/lib/JMapViewer_src.jar!/org/openstreetmap/gui/jmapviewer/JMapViewer.java" line="868" class="org.openstreetmap.gui.jmapviewer.JMapViewer" package="org.openstreetmap.gui.jmapviewer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -116,10 +131,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="JcoMap.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java">
+      <file leaf-file-name="WaterTruck.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/WaterTruck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="349" column="99" selection-start="14987" selection-end="14987" vertical-scroll-proportion="-8.4">
+            <state line="25" column="13" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TruckMixer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/TruckMixer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="53" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VehicleTable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="13" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,79 +161,43 @@
       <file leaf-file-name="Loader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="38" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
+            <state line="144" column="0" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YoursLoader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java">
+      <file leaf-file-name="JcoMap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="59" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+            <state line="358" column="49" selection-start="15249" selection-end="15249" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractVehicle.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java">
+      <file leaf-file-name="i18n_ru_RU.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_ru_RU.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="46" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+            <state line="10" column="100" selection-start="471" selection-end="471" vertical-scroll-proportion="0.27985075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TruckMixer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java">
+      <file leaf-file-name="EntitiesUtility.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/EntitiesUtility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+            <state line="14" column="57" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WaterTruck.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java">
+      <file leaf-file-name="Vehicle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/database/Vehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseManager.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="39" selection-start="336" selection-end="336" vertical-scroll-proportion="0.32846716">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParserUtilities.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/ParserUtilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="19" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="22" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GpxParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/gps/GpxParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="89" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+            <state line="13" column="25" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -224,22 +221,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Location.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/table/RouteTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/Vehicle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/table/LocationTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/queries/QueriesUtility.java" />
-        <option value="$PROJECT_DIR$/database/schema.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/AbstractVehicle.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jco/Jco.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/WaterTruck.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/EntitiesUtility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/TruckMixer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/VehicleTypeEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/entity/database/Vehicle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/l10n.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/L10n.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/I18n.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/i18n/I18n.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n_ru_RU.properties" />
       </list>
     </option>
   </component>
@@ -284,10 +281,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="25" />
-    <option name="width" value="1368" />
-    <option name="height" value="744" />
+    <option name="width" value="1366" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -364,30 +360,8 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="JCO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JCO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jco" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,6 +388,190 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="map" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loaders" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vehicle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JCO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -774,7 +932,11 @@
       <created>1362940536565</created>
       <updated>1362940536565</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="todo">
+      <created>1362940749851</created>
+      <updated>1362940749851</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -798,30 +960,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1368" height="744" extended-state="6" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35462186" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35353535" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20106222" sideWeight="0.53691274" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277311" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32436976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32828283" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3469697" sideWeight="0.6436975" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19166666" sideWeight="0.48907563" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3318182" sideWeight="0.7781513" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22184874" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20106222" sideWeight="0.45134228" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22053872" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39831933" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39730638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32491583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -864,7 +1026,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="database schema; saving logic implementation &amp;&amp; animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -886,6 +1048,7 @@
     <MESSAGE value="random colors" />
     <MESSAGE value="insert data to tables" />
     <MESSAGE value="database schema; saving logic implementation &amp;&amp; animation" />
+    <MESSAGE value="todo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -895,32 +1058,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="39" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/queries/QueriesUtility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="37" selection-start="555" selection-end="555" vertical-scroll-proportion="0.44622424">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="76" selection-start="894" selection-end="894" vertical-scroll-proportion="0.65217394">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/connection.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="32" selection-start="2546" selection-end="2546" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="8" column="19" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/base.png">
@@ -928,79 +1073,83 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/AbstractVehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="42" selection-start="939" selection-end="939" vertical-scroll-proportion="0.36057693" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/Jco.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
+        <state line="16" column="76" selection-start="348" selection-end="348" vertical-scroll-proportion="0.5491991" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/animation/AnimationRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="33" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/EntitiesUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="57" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/ParserUtilities.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/WaterTruck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="19" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+        <state line="25" column="13" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/gps/GpxParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/TruckMixer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="89" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+        <state line="17" column="53" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/parser/AbstractParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/table/VehicleTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="22" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="349" column="99" selection-start="14987" selection-end="14987" vertical-scroll-proportion="-8.4">
+        <state line="76" column="13" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="38" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
+        <state line="144" column="0" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/loaders/yours/YoursLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/database/Vehicle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="59" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+        <state line="13" column="25" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/AbstractVehicle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/i18n/I18n.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="46" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+        <state line="37" column="42" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicle/VehicleTypeEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="42" selection-start="233" selection-end="233" vertical-scroll-proportion="0.5048077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/map/JcoMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="358" column="49" selection-start="15249" selection-end="15249" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/TruckMixer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_ru_RU.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/entity/vehicles/WaterTruck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jco/database/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="39" selection-start="336" selection-end="336" vertical-scroll-proportion="0.32846716">
+        <state line="10" column="100" selection-start="471" selection-end="471" vertical-scroll-proportion="0.27985075">
           <folding />
         </state>
       </provider>

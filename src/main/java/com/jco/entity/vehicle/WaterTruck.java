@@ -1,4 +1,4 @@
-package com.jco.entity.vehicles;
+package com.jco.entity.vehicle;
 
 import com.jco.entity.EntitiesUtility;
 
@@ -15,7 +15,7 @@ public class WaterTruck extends AbstractVehicle {
 
     public WaterTruck() {
         super();
-        setVehicleColor(EntitiesUtility.WATER_TRUCK_COLOR);
+        setVehicleColor(EntitiesUtility.DEFAULT_COLOR);
     }
 
     public WaterTruck(Color color) {
@@ -24,7 +24,7 @@ public class WaterTruck extends AbstractVehicle {
     }
 
     @Override
-    public String getVehicleType() {
-        return EntitiesUtility.WATER_TRUCK_TYPE;
+    public VehicleTypeEnum getVehicleType() {
+        return VehicleTypeEnum.WATER_TRUCK;
     }
 }
