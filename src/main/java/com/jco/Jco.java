@@ -1,6 +1,5 @@
 package com.jco;
 
-import com.jco.entity.vehicle.VehicleTypeEnum;
 import com.jco.map.JcoMap;
 
 /**
